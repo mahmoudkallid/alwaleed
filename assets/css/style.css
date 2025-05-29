@@ -909,26 +909,47 @@ p {
   
   .nav-list {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;
+    width: 70%;
+    height: 100vh;
     background-color: var(--carbon-black);
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-xl) var(--spacing-md);
     box-shadow: var(--shadow-md);
     flex-direction: column;
+    z-index: 1001;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
   
   .nav-list.active {
     display: flex;
+    transform: translateX(0);
   }
   
   .nav-item {
-    margin: var(--spacing-xs) 0;
+    margin: var(--spacing-md) 0;
+    width: 100%;
+  }
+  
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md);
+    text-align: right;
+    font-size: 1.2rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-wrap: break-word;
   }
   
   .mobile-nav-toggle {
     display: block;
+    position: relative;
+    z-index: 1002;
   }
 }
 
@@ -971,6 +992,20 @@ p {
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
+  }
+  
+  /* تعديلات إضافية للقائمة الجانبية المنبثقة */
+  .nav-list {
+    width: 80%;
+  }
+  
+  .nav-item {
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-sm);
+    font-size: 1.1rem;
   }
 }
 
@@ -1039,21 +1074,60 @@ p {
     margin-top: var(--spacing-xs);
   }
   
-  /* تعديل للقوائم الرئيسية والجانبية */
-  .nav-list.active {
-    padding: var(--spacing-sm);
-    max-height: 80vh;
-    overflow-y: auto;
+  /* تعديلات إضافية للقائمة الجانبية المنبثقة */
+  .nav-list {
+    width: 85%;
+    padding: var(--spacing-lg) var(--spacing-md);
   }
   
   .nav-item {
-    width: 100%;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .nav-link {
-    display: block;
-    width: 100%;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
+}
+
+/* ===== تعديلات إضافية للقائمة الجانبية المنبثقة ===== */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+}
+
+.nav-list.active + .mobile-menu-overlay {
+  display: block;
+}
+
+/* تعديلات لضمان ظهور النصوص كاملة في القائمة الجانبية المنبثقة */
+.nav-list {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-item:last-child {
+  margin-bottom: var(--spacing-xl);
+}
+
+.nav-link {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-wrap: break-word;
+  width: 100%;
+  display: block;
 }
