@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> مقالات ونصائح حول الإطارات</title>
+    <meta name="description" content="مدونة شركة الوليد للإطارات والدواليب، مقالات ونصائح حول الإطارات، صيانة السيارات، السلامة على الطريق، وأحدث التقنيات في عالم الإطارات">
+    <meta name="keywords" content="مدونة إطارات، نصائح صيانة الإطارات، سلامة الإطارات، تقنيات الإطارات، الوليد للإطارات">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/alwaleed_logo_new.jpg" type="image/jpg">
+    
+    <style>
+        /* أنماط خاصة بصفحة المدونة */
+        .blog-hero {
+            height: 60vh;
+            background-color: var(--carbon-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,blog,writing');
+            background-size: cover;
+            background-position: center;
+            animation: slowPan 20s infinite alternate;
+        }
+        
+        @keyframes slowPan {
+            0% {
+                transform: scale(1.05) translate(0, 0);
+                filter: brightness(0.8) saturate(1);
+            }
+            50% {
+                transform: scale(1.1) translate(-10px, -5px);
+                filter: brightness(1) saturate(1.2);
+            }
+            100% {
+                transform: scale(1.05) translate(0, 0);
+                filter: brightness(0.8) saturate(1);
+            }
+        }
+        
+        .blog-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(26, 26, 26, 0.8), rgba(196, 30, 58, 0.7));
+        }
+        
+        .blog-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--snow-white);
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .blog-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            gap: var(--spacing-sm);
+        }
+        
+        .filter-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--snow-white);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-color: var(--crimson-red);
+        }
+        
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .blog-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .blog-card {
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .blog-content {
+            padding: var(--spacing-md);
+        }
+        
+        .blog-date {
+            color: var(--steel-gray);
+            font-size: 0.8rem;
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-date i {
+            margin-left: var(--spacing-xs);
+        }
+        
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: var(--steel-gray);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+        
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid #eee;
+        }
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 30px;
+            height: 30px;
+            border-radius: var(--border-radius-circle);
+            overflow: hidden;
+            margin-left: var(--spacing-xs);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .blog-stats {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--steel-gray);
+            font-size: 0.8rem;
+        }
+        
+        .blog-stats span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-stats i {
+            margin-left: 3px;
+        }
+        
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .sidebar-widget {
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--crimson-red);
+            position: relative;
+        }
+        
+        .search-form {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-sm);
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .search-btn {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: 0 var(--spacing-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .search-btn:hover {
+            background-color: var(--carbon-black);
+        }
+        
+        .popular-posts {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .popular-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .popular-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .popular-post-content {
+            flex: 1;
+        }
+        
+        .popular-post-title {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .popular-post-date {
+            font-size: 0.8rem;
+            color: var(--steel-gray);
+        }
+        
+        .categories-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .categories-list li {
+            margin-bottom: var(--spacing-xs);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--carbon-black);
+            transition: all var(--transition-normal);
+        }
+        
+        .categories-list a:hover {
+            color: var(--crimson-red);
+            transform: translateX(-5px);
+        }
+        
+        .categories-list .count {
+            background-color: #f5f5f5;
+            color: var(--steel-gray);
+            padding: 2px 8px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+        
+        .tag {
+            background-color: #f5f5f5;
+            color: var(--steel-gray);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            transition: all var(--transition-normal);
+        }
+        
+        .tag:hover {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            transform: translateY(-2px);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .newsletter-input {
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-sm);
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--carbon-black);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+            gap: var(--spacing-xs);
+        }
+        
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .pagination-item:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+        
+        .pagination-item.active {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+        }
+        
+        .featured-post {
+            grid-column: span 2;
+            display: flex;
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .featured-post:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .featured-post-image {
+            flex: 1;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .featured-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .featured-post:hover .featured-post-image img {
+            transform: scale(1.1);
+        }
+        
+        .featured-post-content {
+            flex: 1;
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-label {
+            display: inline-block;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .featured-post-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+        
+        .featured-post-excerpt {
+            color: var(--steel-gray);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+        
+        /* تأثيرات متحركة إضافية */
+        .floating-notes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-note {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+            animation: floatNote 20s infinite linear;
+        }
+        
+        .note-1 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3075/3075908.png');
+        }
+        
+        .note-2 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3075/3075977.png');
+        }
+        
+        .note-3 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3075/3075843.png');
+        }
+        
+        @keyframes floatNote {
+            0% {
+                transform: translate(0, 100vh) rotate(0deg);
+            }
+            100% {
+                transform: translate(50px, -100px) rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                flex-direction: column;
+            }
+            
+            .featured-post-image {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/alwaleed_logo_new.jpg" alt="شعار الوليد للإطارات والدواليب">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">المنتجات</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">الخدمات</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">معرض الصور</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- بانر صفحة المدونة -->
+    <section class="blog-hero">
+        <div class="blog-hero-bg"></div>
+        <div class="blog-hero-overlay"></div>
+        <div class="floating-notes">
+            <div class="floating-note note-1" style="left: 10%; animation-duration: 20s; animation-delay: 0s;"></div>
+            <div class="floating-note note-2" style="left: 30%; animation-duration: 15s; animation-delay: 2s;"></div>
+            <div class="floating-note note-3" style="left: 50%; animation-duration: 18s; animation-delay: 5s;"></div>
+            <div class="floating-note note-1" style="left: 70%; animation-duration: 22s; animation-delay: 3s;"></div>
+            <div class="floating-note note-2" style="left: 90%; animation-duration: 17s; animation-delay: 7s;"></div>
+        </div>
+        
+        <div class="blog-hero-content">
+            <h1 class="hero-title">المدونة</h1>
+            <p class="hero-subtitle">مقالات ونصائح حول الإطارات، صيانة السيارات، والسلامة على الطريق</p>
+        </div>
+    </section>
+    
+    <!-- قسم المدونة -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">آخر المقالات</h2>
+            
+            <div class="blog-filter fade-in">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="tips">نصائح وإرشادات</button>
+                <button class="filter-btn" data-filter="maintenance">صيانة الإطارات</button>
+                <button class="filter-btn" data-filter="safety">السلامة على الطريق</button>
+                <button class="filter-btn" data-filter="technology">تقنيات حديثة</button>
+                <button class="filter-btn" data-filter="news">أخبار وفعاليات</button>
+            </div>
+            
+            <div class="blog-layout fade-in">
+                <div class="blog-main">
+                    <div class="featured-post">
+                        <div class="featured-post-image">
+                            <img src="https://source.unsplash.com/random/800x600/?tire,safety,road" alt="كيف تختار الإطار المناسب لسيارتك؟">
+                        </div>
+                        <div class="featured-post-content">
+                            <span class="featured-label">مقال مميز</span>
+                            <h3 class="featured-post-title">كيف تختار الإطار المناسب لسيارتك؟</h3>
+                            <p class="featured-post-excerpt">يعد اختيار الإطار المناسب لسيارتك من أهم القرارات التي تؤثر على أداء السيارة وسلامتها. في هذا المقال، نقدم لك دليلاً شاملاً لاختيار الإطار المناسب بناءً على نوع السيارة، ظروف القيادة، والميزانية.</p>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?man,portrait,1" alt="أحمد محمد">
+                                    </div>
+                                    <span class="author-name">أحمد محمد</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-calendar"></i> 15 مايو 2025</span>
+                                    <span><i class="far fa-eye"></i> 1250</span>
+                                    <span><i class="far fa-comment"></i> 28</span>
+                                </div>
+                            </div>
+                            <a href="blog-post.html" class="btn btn-primary btn-sm" style="margin-top: var(--spacing-md);">قراءة المزيد</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card tips">
+                        <div class="blog-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,pressure,check" alt="أهمية فحص ضغط الإطارات بانتظام">
+                            <span class="blog-category">نصائح وإرشادات</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                <span>10 مايو 2025</span>
+                            </div>
+                            <h3 class="blog-title">أهمية فحص ضغط الإطارات بانتظام</h3>
+                            <p class="blog-excerpt">يعد فحص ضغط الإطارات بانتظام من أهم الإجراءات للحفاظ على سلامة السيارة وتحسين استهلاك الوقود. تعرف على الطريقة الصحيحة لفحص ضغط الإطارات والتوقيت المناسب لذلك.</p>
+                            <a href="blog-post.html" class="btn btn-outline btn-sm">قراءة المزيد</a>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?woman,portrait,1" alt="سارة عبدالله">
+                                    </div>
+                                    <span class="author-name">سارة عبدالله</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-eye"></i> 850</span>
+                                    <span><i class="far fa-comment"></i> 12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card maintenance">
+                        <div class="blog-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,rotation" alt="متى يجب تبديل مواضع الإطارات؟">
+                            <span class="blog-category">صيانة الإطارات</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                <span>5 مايو 2025</span>
+                            </div>
+                            <h3 class="blog-title">متى يجب تبديل مواضع الإطارات؟</h3>
+                            <p class="blog-excerpt">تبديل مواضع الإطارات بشكل دوري يساعد في إطالة عمرها وتحسين أدائها. تعرف على التوقيت المناسب لتبديل مواضع الإطارات والطريقة الصحيحة للقيام بذلك.</p>
+                            <a href="blog-post.html" class="btn btn-outline btn-sm">قراءة المزيد</a>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?man,portrait,2" alt="خالد العمري">
+                                    </div>
+                                    <span class="author-name">خالد العمري</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-eye"></i> 720</span>
+                                    <span><i class="far fa-comment"></i> 8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card safety">
+                        <div class="blog-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,safety,rain" alt="القيادة الآمنة في الأمطار: دور الإطارات">
+                            <span class="blog-category">السلامة على الطريق</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                <span>28 أبريل 2025</span>
+                            </div>
+                            <h3 class="blog-title">القيادة الآمنة في الأمطار: دور الإطارات</h3>
+                            <p class="blog-excerpt">تلعب الإطارات دوراً حاسماً في السلامة على الطرق المبللة. تعرف على كيفية التأكد من جاهزية إطاراتك للقيادة في الأمطار ونصائح للقيادة الآمنة في الظروف الجوية السيئة.</p>
+                            <a href="blog-post.html" class="btn btn-outline btn-sm">قراءة المزيد</a>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?man,portrait,3" alt="فهد السالم">
+                                    </div>
+                                    <span class="author-name">فهد السالم</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-eye"></i> 950</span>
+                                    <span><i class="far fa-comment"></i> 15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card technology">
+                        <div class="blog-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,technology,smart" alt="الإطارات الذكية: مستقبل صناعة الإطارات">
+                            <span class="blog-category">تقنيات حديثة</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                <span>20 أبريل 2025</span>
+                            </div>
+                            <h3 class="blog-title">الإطارات الذكية: مستقبل صناعة الإطارات</h3>
+                            <p class="blog-excerpt">تشهد صناعة الإطارات تطوراً كبيراً مع ظهور الإطارات الذكية التي يمكنها مراقبة حالتها وإرسال البيانات للسائق. تعرف على أحدث التقنيات في عالم الإطارات وكيف ستغير مستقبل القيادة.</p>
+                            <a href="blog-post.html" class="btn btn-outline btn-sm">قراءة المزيد</a>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?woman,portrait,2" alt="نورة الحربي">
+                                    </div>
+                                    <span class="author-name">نورة الحربي</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-eye"></i> 1100</span>
+                                    <span><i class="far fa-comment"></i> 22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card news">
+                        <div class="blog-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,exhibition,event" alt="الوليد للإطارات تشارك في معرض السيارات 2025">
+                            <span class="blog-category">أخبار وفعاليات</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i>
+                                <span>15 أبريل 2025</span>
+                            </div>
+                            <h3 class="blog-title">الوليد للإطارات تشارك في معرض السيارات 2025</h3>
+                            <p class="blog-excerpt">شاركت شركة الوليد للإطارات والدواليب في معرض السيارات 2025 بالرياض، حيث عرضت أحدث منتجاتها وخدماتها. تعرف على أبرز ما قدمته الشركة في المعرض والعروض الخاصة التي أطلقتها.</p>
+                            <a href="blog-post.html" class="btn btn-outline btn-sm">قراءة المزيد</a>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-image">
+                                        <img src="https://source.unsplash.com/random/100x100/?man,portrait,4" alt="عبدالله الشمري">
+                                    </div>
+                                    <span class="author-name">عبدالله الشمري</span>
+                                </div>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-eye"></i> 780</span>
+                                    <span><i class="far fa-comment"></i> 10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">بحث</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="ابحث هنا...">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">المقالات الشائعة</h3>
+                        <div class="popular-posts">
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="https://source.unsplash.com/random/200x200/?tire,safety,road" alt="كيف تختار الإطار المناسب لسيارتك؟">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4 class="popular-post-title">كيف تختار الإطار المناسب لسيارتك؟</h4>
+                                    <div class="popular-post-date">15 مايو 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="https://source.unsplash.com/random/200x200/?tire,safety,rain" alt="القيادة الآمنة في الأمطار: دور الإطارات">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4 class="popular-post-title">القيادة الآمنة في الأمطار: دور الإطارات</h4>
+                                    <div class="popular-post-date">28 أبريل 2025</div>
+                                </div>
+                            </div>
+                            
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="https://source.unsplash.com/random/200x200/?tire,technology,smart" alt="الإطارات الذكية: مستقبل صناعة الإطارات">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4 class="popular-post-title">الإطارات الذكية: مستقبل صناعة الإطارات</h4>
+                                    <div class="popular-post-date">20 أبريل 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">التصنيفات</h3>
+                        <ul class="categories-list">
+                            <li>
+                                <a href="#">
+                                    <span>نصائح وإرشادات</span>
+                                    <span class="count">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>صيانة الإطارات</span>
+                                    <span class="count">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>السلامة على الطريق</span>
+                                    <span class="count">10</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>تقنيات حديثة</span>
+                                    <span class="count">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>أخبار وفعاليات</span>
+                                    <span class="count">6</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">الوسوم</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag">إطارات</a>
+                            <a href="#" class="tag">سلامة</a>
+                            <a href="#" class="tag">صيانة</a>
+                            <a href="#" class="tag">تقنية</a>
+                            <a href="#" class="tag">سيارات</a>
+                            <a href="#" class="tag">طرق</a>
+                            <a href="#" class="tag">أمطار</a>
+                            <a href="#" class="tag">ضغط الهواء</a>
+                            <a href="#" class="tag">تبديل</a>
+                            <a href="#" class="tag">إطارات ذكية</a>
+                            <a href="#" class="tag">معارض</a>
+                            <a href="#" class="tag">عروض</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">النشرة البريدية</h3>
+                        <p>اشترك في نشرتنا البريدية للحصول على أحدث المقالات والنصائح حول الإطارات وصيانة السيارات.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="البريد الإلكتروني">
+                            <button type="submit" class="newsletter-btn">اشتراك</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination fade-in">
+                <a href="#" class="pagination-item">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#" class="pagination-item active">1</a>
+                <a href="#" class="pagination-item">2</a>
+                <a href="#" class="pagination-item">3</a>
+                <a href="#" class="pagination-item">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة الوليد للإطارات والدواليب هي الشركة الرائدة في مجال توفير الإطارات عالية الجودة وخدمات الصيانة المتميزة بأسعار تنافسية.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="gallery.html">معرض الصور</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الطريق الدائري الشرقي، حي النزهة، الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+966 11 234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@alwaleed-tires.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 شركة الوليد للإطارات والدواليب. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- زر التمرير للأعلى -->
+    <a href="#" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- ملفات JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // تفعيل فلتر المدونة
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // إزالة الفئة النشطة من جميع الأزرار
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // إضافة الفئة النشطة للزر المحدد
+                this.classList.add('active');
+                
+                // الحصول على فئة الفلتر
+                const filterValue = this.getAttribute('data-filter');
+                
+                // فلترة العناصر
+                if (filterValue === 'all') {
+                    blogCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    blogCards.forEach(card => {
+                        if (card.classList.contains(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

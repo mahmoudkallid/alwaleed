@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور | الوليد للإطارات والدواليب - لحظات مميزة من رحلتنا</title>
+    <meta name="description" content="استعرض معرض صور شركة الوليد للإطارات والدواليب، صور لمنتجاتنا وخدماتنا وفروعنا ولحظات مميزة من رحلتنا">
+    <meta name="keywords" content="معرض صور، صور إطارات، صور دواليب، صور فروع، صور خدمات، الوليد للإطارات">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/alwaleed_logo_new.jpg" type="image/jpg">
+    
+    <style>
+        /* أنماط خاصة بصفحة معرض الصور */
+        .gallery-hero {
+            height: 60vh;
+            background-color: var(--carbon-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,gallery,collection');
+            background-size: cover;
+            background-position: center;
+            animation: panAndZoom 20s infinite alternate;
+        }
+        
+        @keyframes panAndZoom {
+            0% {
+                transform: scale(1) translate(0, 0);
+                filter: brightness(0.8) saturate(1);
+            }
+            50% {
+                transform: scale(1.1) translate(-20px, -10px);
+                filter: brightness(1) saturate(1.2);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+                filter: brightness(0.8) saturate(1);
+            }
+        }
+        
+        .gallery-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 26, 26, 0.8), rgba(196, 30, 58, 0.7));
+        }
+        
+        .gallery-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--snow-white);
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .gallery-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            gap: var(--spacing-sm);
+        }
+        
+        .filter-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--snow-white);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-color: var(--crimson-red);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 300px;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--spacing-md);
+            color: var(--snow-white);
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+        
+        .gallery-item:hover .gallery-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .gallery-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 60px;
+            height: 60px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 2;
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+        
+        .gallery-item:hover .gallery-icon {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80vh;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .lightbox-close:hover {
+            background-color: var(--carbon-black);
+            transform: rotate(90deg);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .lightbox-nav:hover {
+            background-color: var(--carbon-black);
+        }
+        
+        .lightbox-prev {
+            left: -70px;
+        }
+        
+        .lightbox-next {
+            right: -70px;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--snow-white);
+        }
+        
+        .lightbox-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .lightbox-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* تأثيرات متحركة إضافية */
+        .floating-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: floatCircle 15s infinite linear;
+        }
+        
+        @keyframes floatCircle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(100px, -100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/alwaleed_logo_new.jpg" alt="شعار الوليد للإطارات والدواليب">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">المنتجات</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">الخدمات</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link active">معرض الصور</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- بانر صفحة معرض الصور -->
+    <section class="gallery-hero">
+        <div class="gallery-hero-bg"></div>
+        <div class="gallery-hero-overlay"></div>
+        <div class="floating-circles">
+            <div class="floating-circle" style="width: 100px; height: 100px; top: 20%; left: 10%; animation-duration: 20s; animation-delay: 0s;"></div>
+            <div class="floating-circle" style="width: 150px; height: 150px; top: 50%; left: 30%; animation-duration: 15s; animation-delay: 2s;"></div>
+            <div class="floating-circle" style="width: 80px; height: 80px; top: 30%; left: 70%; animation-duration: 25s; animation-delay: 5s;"></div>
+            <div class="floating-circle" style="width: 120px; height: 120px; top: 70%; left: 80%; animation-duration: 18s; animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="gallery-hero-content">
+            <h1 class="hero-title">معرض الصور</h1>
+            <p class="hero-subtitle">لحظات مميزة من رحلتنا ومنتجاتنا وخدماتنا</p>
+        </div>
+    </section>
+    
+    <!-- قسم معرض الصور -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">استكشف معرض صورنا</h2>
+            
+            <div class="gallery-filter fade-in">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="products">المنتجات</button>
+                <button class="filter-btn" data-filter="services">الخدمات</button>
+                <button class="filter-btn" data-filter="branches">الفروع</button>
+                <button class="filter-btn" data-filter="events">الفعاليات</button>
+                <button class="filter-btn" data-filter="team">فريق العمل</button>
+            </div>
+            
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item products" data-category="products">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,premium,1" alt="إطارات بريميوم">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">إطارات بريميوم</h3>
+                        <p class="gallery-category">المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item services" data-category="services">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,service,1" alt="خدمة تركيب الإطارات">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">خدمة تركيب الإطارات</h3>
+                        <p class="gallery-category">الخدمات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item branches" data-category="branches">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,shop,1" alt="فرع الرياض الرئيسي">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">فرع الرياض الرئيسي</h3>
+                        <p class="gallery-category">الفروع</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item events" data-category="events">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,exhibition,1" alt="معرض السيارات 2023">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">معرض السيارات 2023</h3>
+                        <p class="gallery-category">الفعاليات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item team" data-category="team">
+                    <img src="https://source.unsplash.com/random/600x800/?team,workshop,1" alt="فريق الفنيين المحترفين">
+                
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">فريق الفنيين المحترفين</h3>
+                        <p class="gallery-category">فريق العمل</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item products" data-category="products">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,offroad,1" alt="إطارات الطرق الوعرة">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">إطارات الطرق الوعرة</h3>
+                        <p class="gallery-category">المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item services" data-category="services">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,alignment,1" alt="خدمة ضبط زوايا العجلات">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">خدمة ضبط زوايا العجلات</h3>
+                        <p class="gallery-category">الخدمات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item branches" data-category="branches">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,shop,2" alt="فرع جدة">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">فرع جدة</h3>
+                        <p class="gallery-category">الفروع</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item events" data-category="events">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,event,1" alt="يوم العميل المفتوح">
+                
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">يوم العميل المفتوح</h3>
+                        <p class="gallery-category">الفعاليات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item team" data-category="team">
+                    <img src="https://source.unsplash.com/random/600x800/?team,training,1" alt="برنامج تدريب الموظفين">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">برنامج تدريب الموظفين</h3>
+                        <p class="gallery-category">فريق العمل</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item products" data-category="products">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,sport,1" alt="إطارات رياضية">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">إطارات رياضية</h3>
+                        <p class="gallery-category">المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item services" data-category="services">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,repair,1" alt="خدمة إصلاح الإطارات">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">خدمة إصلاح الإطارات</h3>
+                        <p class="gallery-category">الخدمات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item branches" data-category="branches">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,shop,3" alt="فرع الدمام">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">فرع الدمام</h3>
+                        <p class="gallery-category">الفروع</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item events" data-category="events">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,sponsorship,1" alt="رعاية سباق السيارات">
+                 
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">رعاية سباق السيارات</h3>
+                        <p class="gallery-category">الفعاليات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item team" data-category="team">
+                    <img src="https://source.unsplash.com/random/600x800/?team,meeting,1" alt="اجتماع فريق الإدارة">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">اجتماع فريق الإدارة</h3>
+                        <p class="gallery-category">فريق العمل</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item products" data-category="products">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,truck,1" alt="إطارات الشاحنات">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">إطارات الشاحنات</h3>
+                        <p class="gallery-category">المنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item services" data-category="services">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,mobile,service,1" alt="خدمة الصيانة المتنقلة">
+                    
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">خدمة الصيانة المتنقلة</h3>
+                        <p class="gallery-category">الخدمات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item branches" data-category="branches">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,warehouse,1" alt="مستودع الرياض">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">مستودع الرياض</h3>
+                        <p class="gallery-category">الفروع</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item events" data-category="events">
+                    <img src="https://source.unsplash.com/random/600x800/?tire,charity,1" alt="مبادرة المسؤولية المجتمعية">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">مبادرة المسؤولية المجتمعية</h3>
+                        <p class="gallery-category">الفعاليات</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item team" data-category="team">
+                    <img src="https://source.unsplash.com/random/600x800/?team,celebration,1" alt="احتفال الشركة السنوي">
+                  
+                    <div class="gallery-info">
+                        <h3 class="gallery-title">احتفال الشركة السنوي</h3>
+                        <p class="gallery-category">فريق العمل</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="lightbox-nav lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="lightbox-nav lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="lightbox-caption">
+                <h3 class="lightbox-title"></h3>
+                <p class="lightbox-category"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة الوليد للإطارات والدواليب هي الشركة الرائدة في مجال توفير الإطارات عالية الجودة وخدمات الصيانة المتميزة بأسعار تنافسية.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="gallery.html">معرض الصور</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+            
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الطريق الدائري الشرقي، حي النزهة، الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+966 11 234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@alwaleed-tires.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 شركة الوليد للإطارات والدواليب. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- زر التمرير للأعلى -->
+    <a href="#" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- ملفات JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // تفعيل فلتر معرض الصور
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // إزالة الفئة النشطة من جميع الأزرار
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // إضافة الفئة النشطة للزر المحدد
+                this.classList.add('active');
+                
+                // الحصول على فئة الفلتر
+                const filterValue = this.getAttribute('data-filter');
+                
+                // فلترة العناصر
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // تفعيل Lightbox
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const lightboxTitle = document.querySelector('.lightbox-title');
+        const lightboxCategory = document.querySelector('.lightbox-category');
+        
+        let currentIndex = 0;
+        const visibleItems = () => Array.from(galleryItems).filter(item => item.style.display !== 'none');
+        
+        // فتح Lightbox عند النقر على عنصر المعرض
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const items = visibleItems();
+                currentIndex = items.indexOf(this);
+                
+                const imgSrc = this.querySelector('img').src;
+                const title = this.querySelector('.gallery-title').textContent;
+                const category = this.querySelector('.gallery-category').textContent;
+                
+                lightboxImage.src = imgSrc;
+                lightboxTitle.textContent = title;
+                lightboxCategory.textContent = category;
+                
+                lightbox.classList.add('active');
+            });
+        });
+        
+        // إغلاق Lightbox
+        lightboxClose.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+        });
+        
+        // التنقل للصورة السابقة
+        lightboxPrev.addEventListener('click', function() {
+            const items = visibleItems();
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            
+            const item = items[currentIndex];
+            const imgSrc = item.querySelector('img').src;
+            const title = item.querySelector('.gallery-title').textContent;
+            const category = item.querySelector('.gallery-category').textContent;
+            
+            lightboxImage.src = imgSrc;
+            lightboxTitle.textContent = title;
+            lightboxCategory.textContent = category;
+        });
+        
+        // التنقل للصورة التالية
+        lightboxNext.addEventListener('click', function() {
+            const items = visibleItems();
+            currentIndex = (currentIndex + 1) % items.length;
+            
+            const item = items[currentIndex];
+            const imgSrc = item.querySelector('img').src;
+            const title = item.querySelector('.gallery-title').textContent;
+            const category = item.querySelector('.gallery-category').textContent;
+            
+            lightboxImage.src = imgSrc;
+            lightboxTitle.textContent = title;
+            lightboxCategory.textContent = category;
+        });
+        
+        // إغلاق Lightbox عند النقر خارج الصورة
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+        
+        // إغلاق Lightbox عند الضغط على زر Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

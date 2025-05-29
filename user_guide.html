@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل استخدام موقع شركة الوليد للإطارات والدواليب</title>
+    <style>
+        :root {
+            --primary-color: #c41e3a;
+            --secondary-color: #1a1a1a;
+            --light-color: #f8f8f8;
+            --gray-color: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin: 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-right: 4px solid #0066cc;
+        }
+        
+        .warning {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-right: 4px solid #e6a700;
+        }
+        
+        .file-structure {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        .code {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: var(--gray-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>دليل استخدام موقع شركة الوليد للإطارات والدواليب</h1>
+            <p>الإصدار 1.0 - مايو 2025</p>
+        </header>
+        
+        <section>
+            <h2>مقدمة</h2>
+            <p>مرحباً بك في دليل استخدام موقع شركة الوليد للإطارات والدواليب. يهدف هذا الدليل إلى مساعدتك في فهم هيكل الموقع وكيفية تحديثه وإدارته بسهولة.</p>
+            
+            <div class="note">
+                <strong>ملاحظة:</strong> هذا الدليل مخصص للمستخدمين الذين لديهم إمكانية الوصول إلى ملفات الموقع وتحديثها. إذا كنت تحتاج إلى مساعدة إضافية، يرجى التواصل مع مطور الموقع.
+            </div>
+        </section>
+        
+        <section>
+            <h2>هيكل الملفات</h2>
+            <p>يتكون الموقع من مجموعة من الملفات والمجلدات المنظمة بالشكل التالي:</p>
+            
+            <div class="file-structure">
+alwaleed-tires/
+├── index.html              # الصفحة الرئيسية
+├── products.html           # صفحة المنتجات
+├── services.html           # صفحة الخدمات
+├── about.html              # صفحة من نحن
+├── gallery.html            # صفحة معرض الصور
+├── blog.html               # صفحة المدونة
+├── contact.html            # صفحة اتصل بنا
+├── sitemap.xml             # خريطة الموقع لمحركات البحث
+├── robots.txt              # ملف توجيهات لمحركات البحث
+├── assets/                 # مجلد الموارد
+│   ├── css/                # ملفات التنسيق
+│   │   └── style.css       # ملف التنسيق الرئيسي
+│   ├── js/                 # ملفات جافا سكريبت
+│   │   ├── main.js         # ملف جافا سكريبت الرئيسي
+│   │   └── seo-enhancement.js  # ملف تحسين محركات البحث
+│   └── images/             # مجلد الصور
+│       ├── alwaleed_logo_new.jpg  # شعار الشركة
+│       └── ...             # صور أخرى
+└── compatibility_test_report.html  # تقرير اختبار التوافق
+            </div>
+        </section>
+        
+        <section>
+            <h2>تحديث محتوى الموقع</h2>
+            
+            <h3>تحديث النصوص</h3>
+            <p>لتحديث النصوص في الموقع، اتبع الخطوات التالية:</p>
+            <ol>
+                <li>افتح ملف HTML الخاص بالصفحة التي ترغب في تحديثها باستخدام محرر نصوص (مثل Visual Studio Code، Notepad++، إلخ).</li>
+                <li>ابحث عن النص الذي ترغب في تغييره.</li>
+                <li>قم بتعديل النص مع الحفاظ على وسوم HTML المحيطة به.</li>
+                <li>احفظ الملف.</li>
+            </ol>
+            
+            <div class="warning">
+                <strong>تحذير:</strong> احرص على عدم تغيير أو حذف وسوم HTML المحيطة بالنص، حيث قد يؤدي ذلك إلى مشاكل في عرض الموقع.
+            </div>
+            
+            <h3>تحديث الصور</h3>
+            <p>لتحديث الصور في الموقع، اتبع الخطوات التالية:</p>
+            <ol>
+                <li>قم بتحضير الصورة الجديدة بنفس الأبعاد والجودة المناسبة.</li>
+                <li>انسخ الصورة الجديدة إلى مجلد <code>assets/images/</code>.</li>
+                <li>افتح ملف HTML الخاص بالصفحة التي تحتوي على الصورة.</li>
+                <li>ابحث عن وسم <code>&lt;img&gt;</code> الخاص بالصورة التي ترغب في تغييرها.</li>
+                <li>قم بتغيير قيمة السمة <code>src</code> لتشير إلى الصورة الجديدة.</li>
+                <li>تأكد من تحديث قيمة السمة <code>alt</code> لتصف الصورة الجديدة بشكل صحيح.</li>
+                <li>احفظ الملف.</li>
+            </ol>
+            
+            <div class="code">&lt;img src="assets/images/new-image.jpg" alt="وصف الصورة الجديدة"&gt;</div>
+        </section>
+        
+        <section>
+            <h2>إضافة صفحات جديدة</h2>
+            <p>لإضافة صفحة جديدة إلى الموقع، اتبع الخطوات التالية:</p>
+            <ol>
+                <li>انسخ أحد ملفات HTML الموجودة (مثل <code>about.html</code>) واحفظه باسم جديد (مثل <code>new-page.html</code>).</li>
+                <li>افتح الملف الجديد وقم بتحديث العناصر التالية:
+                    <ul>
+                        <li>عنوان الصفحة (وسم <code>&lt;title&gt;</code>)</li>
+                        <li>وصف الصفحة (وسم <code>&lt;meta name="description"&gt;</code>)</li>
+                        <li>الكلمات المفتاحية (وسم <code>&lt;meta name="keywords"&gt;</code>)</li>
+                        <li>محتوى الصفحة (داخل وسم <code>&lt;body&gt;</code>)</li>
+                    </ul>
+                </li>
+                <li>قم بتحديث القائمة الرئيسية في جميع صفحات الموقع لإضافة رابط للصفحة الجديدة.</li>
+                <li>قم بتحديث ملف <code>sitemap.xml</code> لإضافة الصفحة الجديدة.</li>
+            </ol>
+            
+            <div class="note">
+                <strong>ملاحظة:</strong> تأكد من الحفاظ على نفس هيكل وتنسيق الصفحات الأخرى للحفاظ على تناسق الموقع.
+            </div>
+        </section>
+        
+        <section>
+            <h2>تحديث التأثيرات الحركية</h2>
+            <p>يحتوي الموقع على العديد من التأثيرات الحركية التي تم تنفيذها باستخدام CSS وJavaScript. لتعديل هذه التأثيرات:</p>
+            
+            <h3>تعديل تأثيرات CSS</h3>
+            <ol>
+                <li>افتح ملف <code>assets/css/style.css</code>.</li>
+                <li>ابحث عن القسم الخاص بالتأثير الذي ترغب في تعديله (عادة ما يكون مصحوباً بتعليق توضيحي).</li>
+                <li>قم بتعديل خصائص CSS حسب الحاجة.</li>
+                <li>احفظ الملف.</li>
+            </ol>
+            
+            <h3>تعديل تأثيرات JavaScript</h3>
+            <ol>
+                <li>افتح ملف <code>assets/js/main.js</code>.</li>
+                <li>ابحث عن الدالة أو الكود الخاص بالتأثير الذي ترغب في تعديله.</li>
+                <li>قم بتعديل الكود حسب الحاجة.</li>
+                <li>احفظ الملف.</li>
+            </ol>
+            
+            <div class="warning">
+                <strong>تحذير:</strong> قبل إجراء أي تعديلات على ملفات JavaScript، قم بعمل نسخة احتياطية من الملفات الأصلية.
+            </div>
+        </section>
+        
+        <section>
+            <h2>تحسين محركات البحث (SEO)</h2>
+            <p>تم تحسين الموقع لمحركات البحث من خلال العناصر التالية:</p>
+            
+            <h3>العناوين والأوصاف</h3>
+            <p>لتحديث عنوان ووصف الصفحة:</p>
+            <ol>
+                <li>افتح ملف HTML الخاص بالصفحة.</li>
+                <li>ابحث عن وسم <code>&lt;title&gt;</code> وقم بتحديثه.</li>
+                <li>ابحث عن وسم <code>&lt;meta name="description"&gt;</code> وقم بتحديث قيمة السمة <code>content</code>.</li>
+                <li>ابحث عن وسم <code>&lt;meta name="keywords"&gt;</code> وقم بتحديث قيمة السمة <code>content</code>.</li>
+            </ol>
+            
+            <h3>خريطة الموقع</h3>
+            <p>لتحديث خريطة الموقع:</p>
+            <ol>
+                <li>افتح ملف <code>sitemap.xml</code>.</li>
+                <li>أضف أو قم بتحديث عناصر <code>&lt;url&gt;</code> لكل صفحة في الموقع.</li>
+                <li>تأكد من تحديث تاريخ آخر تعديل <code>&lt;lastmod&gt;</code> لكل صفحة تم تحديثها.</li>
+            </ol>
+            
+            <h3>البيانات الهيكلية</h3>
+            <p>لتحديث البيانات الهيكلية (Schema Markup):</p>
+            <ol>
+                <li>افتح ملف <code>assets/js/seo-enhancement.js</code>.</li>
+                <li>ابحث عن الكائنات JSON الخاصة بالبيانات الهيكلية وقم بتحديثها حسب الحاجة.</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>نشر التحديثات</h2>
+            <p>بعد إجراء التحديثات على الموقع، اتبع الخطوات التالية لنشرها:</p>
+            <ol>
+                <li>قم بمراجعة جميع التغييرات للتأكد من عدم وجود أخطاء.</li>
+                <li>اختبر الموقع محلياً للتأكد من عمل جميع الصفحات والتأثيرات بشكل صحيح.</li>
+                <li>قم بنسخ جميع الملفات المحدثة إلى خادم الاستضافة باستخدام برنامج FTP أو لوحة تحكم الاستضافة.</li>
+                <li>تحقق من الموقع المنشور للتأكد من ظهور التحديثات بشكل صحيح.</li>
+            </ol>
+            
+            <div class="note">
+                <strong>ملاحظة:</strong> يُفضل عمل نسخة احتياطية من الموقع قبل نشر أي تحديثات كبيرة.
+            </div>
+        </section>
+        
+        <section>
+            <h2>الدعم الفني</h2>
+            <p>إذا واجهتك أي مشكلة أو كان لديك أي استفسار حول الموقع، يرجى التواصل مع فريق الدعم الفني:</p>
+            <ul>
+                <li>البريد الإلكتروني: support@alwaleed-tires.com</li>
+                <li>الهاتف: +966 11 234 5678</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <p>© 2025 شركة الوليد للإطارات والدواليب. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+</body>
+</html>

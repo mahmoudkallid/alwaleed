@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا | الوليد للإطارات والدواليب - تواصل معنا للاستفسارات والطلبات</title>
+    <meta name="description" content="تواصل مع شركة الوليد للإطارات والدواليب للاستفسارات، الطلبات، أو الشكاوى. نحن هنا لخدمتك في جميع فروعنا بالمملكة العربية السعودية">
+    <meta name="keywords" content="اتصل بنا، تواصل معنا، فروع الوليد للإطارات، أرقام التواصل، عنوان الوليد للإطارات">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/alwaleed_logo_new.jpg" type="image/jpg">
+    
+    <style>
+        /* أنماط خاصة بصفحة اتصل بنا */
+        .contact-hero {
+            height: 60vh;
+            background-color: var(--carbon-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,contact,customer,service');
+            background-size: cover;
+            background-position: center;
+            animation: zoomEffect 20s infinite alternate;
+        }
+        
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(1);
+                filter: brightness(0.8) saturate(1);
+            }
+            50% {
+                transform: scale(1.1);
+                filter: brightness(1) saturate(1.2);
+            }
+            100% {
+                transform: scale(1);
+                filter: brightness(0.8) saturate(1);
+            }
+        }
+        
+        .contact-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(196, 30, 58, 0.7));
+        }
+        
+        .contact-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--snow-white);
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-card {
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all var(--transition-normal);
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: rotate(360deg);
+            background-color: var(--carbon-black);
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .contact-text {
+            color: var(--steel-gray);
+            line-height: 1.6;
+        }
+        
+        .contact-form-container {
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--carbon-black);
+        }
+        
+        .form-input,
+        .form-textarea {
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-sm);
+            font-family: 'Tajawal', sans-serif;
+            transition: all var(--transition-normal);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--crimson-red);
+            box-shadow: 0 0 0 2px rgba(196, 30, 58, 0.2);
+            outline: none;
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-md);
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-top: var(--spacing-sm);
+        }
+        
+        .form-submit:hover {
+            background-color: var(--carbon-black);
+            transform: translateY(-2px);
+        }
+        
+        .branches-section {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .branch-card {
+            background-color: var(--snow-white);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .branch-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .branch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .branch-card:hover .branch-image img {
+            transform: scale(1.1);
+        }
+        
+        .branch-content {
+            padding: var(--spacing-md);
+        }
+        
+        .branch-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .branch-info {
+            margin-bottom: var(--spacing-sm);
+            color: var(--steel-gray);
+        }
+        
+        .branch-info i {
+            margin-left: var(--spacing-xs);
+            color: var(--crimson-red);
+        }
+        
+        .branch-hours {
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid #eee;
+        }
+        
+        .hours-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .hours-list {
+            color: var(--steel-gray);
+            font-size: 0.9rem;
+        }
+        
+        .map-container {
+            height: 500px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .social-section {
+            margin-top: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .social-title {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--snow-white);
+            color: var(--crimson-red);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(360deg);
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* تأثيرات متحركة إضافية */
+        .floating-tires {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-tire {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2554/2554936.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
+            animation: floatTire 20s infinite linear;
+        }
+        
+        @keyframes floatTire {
+            0% {
+                transform: translate(-100px, 100vh) rotate(0deg);
+            }
+            100% {
+                transform: translate(100vw, -100px) rotate(720deg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/alwaleed_logo_new.jpg" alt="شعار الوليد للإطارات والدواليب">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">المنتجات</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">الخدمات</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">معرض الصور</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- بانر صفحة اتصل بنا -->
+    <section class="contact-hero">
+        <div class="contact-hero-bg"></div>
+        <div class="contact-hero-overlay"></div>
+        <div class="floating-tires">
+            <div class="floating-tire" style="top: 20%; left: 10%; animation-duration: 25s; animation-delay: 0s;"></div>
+            <div class="floating-tire" style="top: 50%; left: 30%; animation-duration: 20s; animation-delay: 5s;"></div>
+            <div class="floating-tire" style="top: 30%; left: 70%; animation-duration: 22s; animation-delay: 2s;"></div>
+            <div class="floating-tire" style="top: 70%; left: 50%; animation-duration: 18s; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="contact-hero-content">
+            <h1 class="hero-title">اتصل بنا</h1>
+            <p class="hero-subtitle">نحن هنا لخدمتك والإجابة على جميع استفساراتك</p>
+        </div>
+    </section>
+    
+    <!-- قسم معلومات الاتصال ونموذج التواصل -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">تواصل معنا</h2>
+            <p class="section-subtitle fade-in">يسعدنا تلقي استفساراتك وملاحظاتك. يمكنك التواصل معنا من خلال أي من الطرق التالية أو تعبئة النموذج أدناه.</p>
+            
+            <div class="contact-layout fade-in">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-title">العنوان</h3>
+                            <p class="contact-text">الطريق الدائري الشرقي، حي النزهة، الرياض، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-title">الهاتف</h3>
+                            <p class="contact-text">+966 11 234 5678</p>
+                            <p class="contact-text">+966 50 123 4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-title">البريد الإلكتروني</h3>
+                            <p class="contact-text">info@alwaleed-tires.com</p>
+                            <p class="contact-text">support@alwaleed-tires.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-title">ساعات العمل</h3>
+                            <p class="contact-text">السبت - الخميس: 8:00 صباحاً - 10:00 مساءً</p>
+                            <p class="contact-text">الجمعة: 2:00 ظهراً - 10:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    
+    <!-- قسم الخريطة -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">موقعنا على الخريطة</h2>
+            <div class="map-container fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6554831255814!2d46.72386491500158!3d24.6883066841197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2z2KfZhNi32LHZitmCINin2YTYr9in2KbYsdmKINin2YTYtNix2YLZitiMINin2YTZhti22YfYqdiMINin2YTYsdin2YrYtiA0NTM0Mg!5e0!3m2!1sar!2ssa!4v1653674532142!5m2!1sar!2ssa" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم وسائل التواصل الاجتماعي -->
+    <section class="section social-section">
+        <div class="container">
+            <h2 class="section-title fade-in">تابعنا على وسائل التواصل الاجتماعي</h2>
+            <div class="social-icons fade-in">
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة الوليد للإطارات والدواليب هي الشركة الرائدة في مجال توفير الإطارات عالية الجودة وخدمات الصيانة المتميزة بأسعار تنافسية.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="gallery.html">معرض الصور</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+           
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الطريق الدائري الشرقي، حي النزهة، الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+966 11 234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@alwaleed-tires.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 شركة الوليد للإطارات والدواليب. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- زر التمرير للأعلى -->
+    <a href="#" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- ملفات JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // تفعيل نموذج الاتصال
+        const contactForm = document.querySelector('.contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // هنا يمكن إضافة كود للتحقق من صحة البيانات وإرسالها
+            
+            // عرض رسالة نجاح (للتوضيح فقط)
+            alert('تم إرسال رسالتك بنجاح! سنقوم بالرد عليك في أقرب وقت ممكن.');
+            
+            // إعادة تعيين النموذج
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

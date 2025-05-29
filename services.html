@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا | الوليد للإطارات والدواليب - خدمات متكاملة للإطارات</title>
+    <meta name="description" content="خدمات متكاملة من البيع والتركيب إلى الصيانة الدورية والإصلاح بأيدي خبراء متخصصين في مجال الإطارات">
+    <meta name="keywords" content="خدمات إطارات، تركيب إطارات، صيانة إطارات، موازنة إطارات، إصلاح إطارات، الوليد">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/alwaleed_logo_new.jpg" type="image/jpg">
+    
+    <style>
+        /* أنماط خاصة بصفحة الخدمات */
+        .services-hero {
+            height: 60vh;
+            background-color: var(--carbon-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,service,mechanic');
+            background-size: cover;
+            background-position: center;
+            animation: kenBurns 20s infinite alternate;
+        }
+        
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.1) translate(-20px, -10px);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+        
+        .services-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(196, 30, 58, 0.8));
+        }
+        
+        .services-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--snow-white);
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.05), rgba(26, 26, 26, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            position: absolute;
+            top: -35px;
+            right: 30px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotate(360deg);
+            background-color: var(--carbon-black);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            padding-top: var(--spacing-md);
+        }
+        
+        .service-description {
+            margin-bottom: var(--spacing-md);
+            color: var(--steel-gray);
+        }
+        
+        .service-features {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .service-feature i {
+            color: var(--crimson-red);
+            margin-left: var(--spacing-sm);
+        }
+        
+        .service-price {
+            font-weight: 700;
+            color: var(--crimson-red);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-rating i {
+            color: #FFD700;
+            margin-left: 2px;
+        }
+        
+        .service-rating span {
+            margin-right: var(--spacing-xs);
+            color: var(--steel-gray);
+            font-size: 0.9rem;
+        }
+        
+        .process-section {
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,pattern');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .process-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            counter-reset: step-counter;
+        }
+        
+        .process-step {
+            flex: 0 0 250px;
+            margin: 0 var(--spacing-md) var(--spacing-xl);
+            text-align: center;
+            position: relative;
+            counter-increment: step-counter;
+        }
+        
+        .process-step::before {
+            content: counter(step-counter);
+            width: 50px;
+            height: 50px;
+            background-color: var(--crimson-red);
+            color: var(--snow-white);
+            border-radius: var(--border-radius-circle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto var(--spacing-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .process-step:hover::before {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--crimson-red);
+            z-index: -1;
+        }
+        
+        .process-step:first-child::after {
+            display: none;
+        }
+        
+        .process-icon {
+            font-size: 2.5rem;
+            color: var(--steel-gray);
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--transition-normal);
+        }
+        
+        .process-step:hover .process-icon {
+            color: var(--crimson-red);
+            transform: translateY(-5px);
+        }
+        
+        .process-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .process-description {
+            font-size: 0.9rem;
+            color: var(--steel-gray);
+        }
+        
+        .testimonials-section {
+            background-color: var(--carbon-black);
+            color: var(--snow-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,dark');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .testimonials-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: var(--crimson-red);
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text {
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-circle);
+            overflow: hidden;
+            margin-left: var(--spacing-md);
+            border: 3px solid var(--crimson-red);
+        }
+        
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            color: var(--snow-white);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            color: var(--metallic-silver);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--crimson-red), var(--carbon-black));
+            color: var(--snow-white);
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?tire,workshop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--snow-white);
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        
+        /* تأثيرات متحركة إضافية */
+        .floating-tools {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-tool {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+            animation: floatTool 15s infinite linear;
+        }
+        
+        .tool-1 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2933/2933116.png');
+        }
+        
+        .tool-2 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2933/2933057.png');
+        }
+        
+        .tool-3 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2933/2933230.png');
+        }
+        
+        .tool-4 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2933/2933218.png');
+        }
+        
+        @keyframes floatTool {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/alwaleed_logo_new.jpg" alt="شعار الوليد للإطارات والدواليب">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">المنتجات</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link active">الخدمات</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">معرض الصور</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- بانر صفحة الخدمات -->
+    <section class="services-hero">
+        <div class="services-hero-bg"></div>
+        <div class="services-hero-overlay"></div>
+        <div class="floating-tools">
+            <div class="floating-tool tool-1" style="left: 10%; animation-duration: 20s; animation-delay: 0s;"></div>
+            <div class="floating-tool tool-2" style="left: 30%; animation-duration: 15s; animation-delay: 2s;"></div>
+            <div class="floating-tool tool-3" style="left: 50%; animation-duration: 18s; animation-delay: 5s;"></div>
+            <div class="floating-tool tool-4" style="left: 70%; animation-duration: 22s; animation-delay: 3s;"></div>
+            <div class="floating-tool tool-1" style="left: 90%; animation-duration: 17s; animation-delay: 7s;"></div>
+        </div>
+        
+        <div class="services-hero-content">
+            <h1 class="hero-title">خدماتنا</h1>
+            <p class="hero-subtitle">خدمات متكاملة للإطارات بأيدي خبراء متخصصين</p>
+        </div>
+    </section>
+    
+    <!-- قسم الخدمات الرئيسية -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">خدماتنا المتميزة</h2>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,installation" alt="تركيب وموازنة الإطارات">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <h3 class="service-title">تركيب وموازنة الإطارات</h3>
+                            <p class="service-description">خدمة احترافية لتركيب وموازنة الإطارات باستخدام أحدث المعدات وبأيدي فنيين متخصصين.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تركيب الإطارات بدقة عالية</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>موازنة إلكترونية دقيقة</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فحص ضغط الهواء</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>ضمان على الخدمة</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 150 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(45)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,repair" alt="صيانة وإصلاح الإطارات">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="service-title">صيانة وإصلاح الإطارات</h3>
+                            <p class="service-description">خدمات صيانة وإصلاح شاملة للإطارات تشمل إصلاح الثقوب والتمزقات وتصحيح المشاكل المختلفة.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>إصلاح ثقوب الإطارات</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>معالجة تسرب الهواء</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فحص شامل للإطارات</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تقرير حالة مفصل</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 100 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(38)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?car,alignment" alt="ضبط زوايا العجلات">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3 class="service-title">ضبط زوايا العجلات</h3>
+                            <p class="service-description">خدمة ضبط زوايا العجلات باستخدام أحدث الأجهزة الإلكترونية لضمان قيادة مريحة وآمنة.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>ضبط دقيق للزوايا</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تقليل تآكل الإطارات</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تحسين استهلاك الوقود</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تقرير فني مفصل</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 200 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(32)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,inspection" alt="الفحص الدوري للإطارات">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3 class="service-title">الفحص الدوري للإطارات</h3>
+                            <p class="service-description">خدمة فحص شاملة للإطارات تشمل فحص عمق المداس، حالة الإطار، ضغط الهواء، وتحديد المشاكل المحتملة.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فحص عمق المداس</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فحص ضغط الهواء</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فحص حالة الإطار</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تقرير حالة مفصل</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 50 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(41)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,nitrogen" alt="تعبئة النيتروجين">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3 class="service-title">تعبئة النيتروجين</h3>
+                            <p class="service-description">خدمة تعبئة الإطارات بغاز النيتروجين بدلاً من الهواء العادي لتحسين الأداء وإطالة عمر الإطار.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>ثبات أفضل لضغط الهواء</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تقليل تآكل الإطارات</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تحسين استهلاك الوقود</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>أداء أفضل للإطارات</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 80 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(29)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://source.unsplash.com/random/600x400/?tire,mobile,service" alt="خدمة الصيانة المتنقلة">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3 class="service-title">خدمة الصيانة المتنقلة</h3>
+                            <p class="service-description">خدمة صيانة وإصلاح الإطارات في موقعك، سواء كنت في المنزل أو العمل أو على الطريق.</p>
+                            <div class="service-features">
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>خدمة على مدار الساعة</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>تغطية جميع مناطق المدينة</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>معدات متطورة متنقلة</span>
+                                </div>
+                                <div class="service-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>فنيين محترفين</span>
+                                </div>
+                            </div>
+                            <div class="service-price">
+                                تبدأ من 250 ر.س
+                            </div>
+                            <div class="service-footer">
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(52)</span>
+                                </div>
+                                <a href="contact.html" class="btn btn-outline btn-sm">احجز الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم عملية الخدمة -->
+    <section class="process-section section">
+        <div class="process-bg"></div>
+        <div class="container process-container">
+            <h2 class="section-title fade-in">كيف تتم خدمتنا</h2>
+            
+            <div class="process-steps fade-in">
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="process-title">حجز موعد</h3>
+                    <p class="process-description">احجز موعداً مناسباً لك عبر الموقع أو الهاتف أو تطبيق الجوال.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="process-title">وصول السيارة</h3>
+                    <p class="process-description">أحضر سيارتك في الموعد المحدد أو اطلب خدمة الصيانة المتنقلة.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="process-title">الفحص والتشخيص</h3>
+                    <p class="process-description">يقوم فريقنا بفحص شامل للإطارات وتشخيص المشكلة بدقة.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="process-title">تنفيذ الخدمة</h3>
+                    <p class="process-description">تنفيذ الخدمة المطلوبة باستخدام أحدث المعدات وبأيدي فنيين محترفين.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="process-title">التحقق والاختبار</h3>
+                    <p class="process-description">التحقق من جودة الخدمة واختبار الأداء للتأكد من حل المشكلة.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="process-title">التسليم والضمان</h3>
+                    <p class="process-description">تسليم السيارة مع تقرير مفصل وضمان على الخدمة المقدمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم آراء العملاء -->
+    <section class="testimonials-section section">
+        <div class="testimonials-bg"></div>
+        <div class="container testimonials-container">
+            <h2 class="section-title fade-in">آراء عملائنا عن خدماتنا</h2>
+            
+            <div class="testimonials-grid fade-in">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">استفدت من خدمة تركيب وموازنة الإطارات، وكانت التجربة ممتازة. الفنيين محترفين جداً والخدمة سريعة ودقيقة. أنصح بشدة بالتعامل مع شركة الوليد للإطارات.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?man,portrait,1" alt="أحمد محمد">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>أحمد محمد</h4>
+                            <p>الرياض</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">خدمة الصيانة المتنقلة كانت منقذة لي عندما تعطلت سيارتي على الطريق. وصل الفني خلال 30 دقيقة وأصلح الإطار بسرعة واحترافية. شكراً لشركة الوليد على هذه الخدمة الرائعة.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?woman,portrait,1" alt="سارة عبدالله">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>سارة عبدالله</h4>
+                            <p>جدة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">قمت بعمل ضبط زوايا العجلات لسيارتي، والنتيجة كانت مذهلة. أصبحت القيادة أكثر سلاسة واستقراراً، وانخفض استهلاك الوقود بشكل ملحوظ. فريق عمل محترف وخدمة ممتازة.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?man,portrait,2" alt="خالد العمري">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>خالد العمري</h4>
+                            <p>الدمام</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">أستخدم خدمة الفحص الدوري للإطارات بشكل منتظم، وهذا ساعدني في تجنب الكثير من المشاكل المحتملة. الفنيين يقدمون نصائح قيمة للحفاظ على الإطارات في حالة جيدة. خدمة تستحق كل ريال.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?man,portrait,3" alt="فهد السالم">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>فهد السالم</h4>
+                            <p>الرياض</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">جربت خدمة تعبئة النيتروجين، ولاحظت فرقاً كبيراً في ثبات ضغط الهواء في الإطارات. لم أعد بحاجة للتحقق من الضغط بشكل متكرر كما كنت سابقاً. خدمة ممتازة وتستحق التجربة.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?woman,portrait,2" alt="نورة الحربي">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>نورة الحربي</h4>
+                            <p>جدة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">أنا عميل دائم لشركة الوليد منذ سنوات، وأثق تماماً في خدماتهم. الأسعار معقولة، والخدمة سريعة، والفنيين محترفين. أنصح الجميع بالتعامل معهم للحصول على أفضل خدمة للإطارات.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-image">
+                            <img src="https://source.unsplash.com/random/100x100/?man,portrait,4" alt="عبدالله الشمري">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>عبدالله الشمري</h4>
+                            <p>الرياض</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الدعوة للعمل -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="container cta-container">
+            <h2 class="cta-title fade-in">احصل على خدماتنا الآن</h2>
+            <p class="cta-description fade-in">نحن نقدم خدمات متكاملة للإطارات بأيدي فنيين محترفين وباستخدام أحدث المعدات. احجز خدمتك الآن واستمتع بتجربة خدمة استثنائية.</p>
+            <div class="cta-buttons fade-in">
+                <a href="contact.html" class="btn btn-primary btn-lg">احجز موعداً</a>
+                <a href="tel:+966112345678" class="btn btn-outline btn-lg">اتصل بنا</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة الوليد للإطارات والدواليب هي الشركة الرائدة في مجال توفير الإطارات عالية الجودة وخدمات الصيانة المتميزة بأسعار تنافسية.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="gallery.html">معرض الصور</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+      
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الطريق الدائري الشرقي، حي النزهة، الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+966 11 234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@alwaleed-tires.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 شركة الوليد للإطارات والدواليب. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- زر التمرير للأعلى -->
+    <a href="#" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- ملفات JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
